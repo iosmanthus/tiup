@@ -119,8 +119,10 @@ func (m *Manager) ScaleOut(
 	if err := spec.CheckClusterPortConflict(clusterList, name, mergedTopo); err != nil {
 		return err
 	}
-	if err := spec.CheckClusterDirConflict(clusterList, name, mergedTopo); err != nil {
-		return err
+	if !opt.Force {
+		if err := spec.CheckClusterDirConflict(clusterList, name, mergedTopo); err != nil {
+			return err
+		}
 	}
 
 	patchedComponents := set.NewStringSet()

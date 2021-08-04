@@ -63,6 +63,7 @@ func newScaleOutCmd() *cobra.Command {
 	cmd.Flags().StringVarP(&opt.IdentityFile, "identity_file", "i", opt.IdentityFile, "The path of the SSH identity file. If specified, public key authentication will be used.")
 	cmd.Flags().BoolVarP(&opt.UsePassword, "password", "p", false, "Use password of target hosts. If specified, password authentication will be used.")
 	cmd.Flags().BoolVarP(&opt.NoLabels, "no-labels", "", false, "Don't check TiKV labels")
+	cmd.Flags().BoolVarP(&opt.Force, "force", "", false, "Don't check directory conflict")
 
 	return cmd
 }

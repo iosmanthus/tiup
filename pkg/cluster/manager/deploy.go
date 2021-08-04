@@ -43,6 +43,7 @@ import (
 // DeployOptions contains the options for scale out.
 type DeployOptions struct {
 	User              string // username to login to the SSH server
+	Force             bool
 	SkipCreateUser    bool   // don't create the user
 	IdentityFile      string // path to the private key file
 	UsePassword       bool   // use password instead of identity file for ssh connection
